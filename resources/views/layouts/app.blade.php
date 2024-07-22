@@ -11,6 +11,45 @@
     @livewireStyles
 </head>
 
+<style>
+    .profile-container {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Tamaño para pantallas pequeñas */
+    @media (min-width: 640px) {
+        .profile-container {
+            width: 300px;
+            height: 300px;
+        }
+    }
+
+    /* Tamaño para pantallas medianas */
+    @media (min-width: 768px) {
+        .profile-container {
+            width: 350px;
+            height: 350px;
+        }
+    }
+
+    /* Tamaño para pantallas grandes */
+    @media (min-width: 1024px) {
+        .profile-container {
+            width: 380px;
+            height: 380px;
+        }
+    }
+</style>
+
 <body class="bg-gray-100">
 
     <header class="p-5 border-b bg-white shadow">
@@ -44,7 +83,7 @@
                                 class="flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium ml-auto md:items-center">
                                 <li>
                                     <a href="{{route('posts.create')}}"
-                                        class="flex items-center gap-2 bg-white border p-2 text-gray-600 rounded-lg text-base uppercase font-bold cursor-pointer">
+                                        class="flex items-center gap-2 bg-white border p-2 text-gray-600 rounded-lg text-base uppercase font-bold cursor-pointer hover:text-black">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-6">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -56,15 +95,27 @@
                                     </a>
                                 </li>
                                 <li class="py-1">
-                                    <a class="font-bold text-gray-600 text-base border p-2 gap-2 flex rounded-lg"
-                                        href="{{route('posts.index', auth()->user()->username)}}">HOLA: <span
-                                            class="font-normal">{{auth()->user()->username}}</span></a>
+                                    <a class="font-bold text-gray-600 text-base border p-2 gap-2 flex rounded-lg hover:text-black"
+                                        href="{{route('posts.index', auth()->user()->username)}}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+                                        <span class="font-normal ">{{auth()->user()->username}}</span></a>
                                 </li>
                                 <li>
                                     <form method="POST" action="{{route('logout')}}"
-                                        class="border p-2 gap-2 flex rounded-lg">
+                                        class="border p-2 gap-2 flex rounded-lg ">
                                         @csrf
-                                        <button class="font-bold uppercase text-gray-600 text-base " type="submit">Cerrar
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+                                        </svg>
+
+                                        <button class="font-bold uppercase text-gray-600 text-base hover:text-black"
+                                            type="submit">Cerrar
                                             Sesión</button>
                                     </form>
                                 </li>
@@ -78,7 +129,7 @@
                                 class="flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium ml-auto">
                                 <li>
                                     <a class="font-bold uppercase text-gray-600 text-base border rounded-lg p-2 gap-2 flex md:border-none"
-                                        href="{{ route('login') }}">Login</a>
+                                        href="{{ route('login') }}">Iniciar sesion</a>
                                 </li>
                                 <li>
                                     <a class="font-bold uppercase text-gray-600 text-base border rounded-lg p-2 gap-2 flex md:border-none"
@@ -94,7 +145,7 @@
     </header>
 
     <main class="container mx-auto mt-10">
-        <h2 class="font-black text-center text-3xl mb-10">@yield('titulo')</h2>
+        <h2 class="font-black text-center text-3xl mb-10" style="font-family: 'AbadiMT';">@yield('titulo')</h2>
         @yield('contenido')
     </main>
 
