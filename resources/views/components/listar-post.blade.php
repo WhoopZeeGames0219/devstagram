@@ -1,16 +1,17 @@
 <div>
     @if ($posts->count())
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div class="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-1">
             @foreach ($posts as $post)
-                <div class="overflow-hidden" style="height:400px;">
+                <div class="relative overflow-hidden border border-gray-300 rounded-lg" style="padding-bottom: 100%;">
                     <a href="{{ route('posts.show', ['post' => $post, 'user' => $post->user]) }}">
                         <img src="{{ asset('uploads') . '/' . $post->imagen }}" alt="Imagen del post {{ $post->titulo }}"
-                            class="w-full h-full object-cover">
+                            class="absolute inset-0 w-full h-full object-cover">
                     </a>
                 </div>
             @endforeach
         </div>
+
 
         <div class="my-10">
             {{ $posts->links('pagination::tailwind') }}
