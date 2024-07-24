@@ -24,6 +24,6 @@ class ComentarioController extends Controller
         ]);
 
         //Imprimir un mensaje
-        return back()->with('mensaje', 'Comentario Realizdo Correctamente');
+        return back()->with('mensaje', 'Comentario Realizado Correctamente');
     }
 }

@@ -35,7 +35,7 @@ Registrate en Devstagram
             </div>
 
             <div class="mb-5">
-                <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">Email</label>
+                <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">Correo Electronico</label>
                 <input class="border p-3 w-full rounded-lg @error('email') border-red-500 @enderror" type="email"
                     name="email" id="email" placeholder="Tu Email de Registro" value="{{ old('email') }}" />
 
@@ -45,7 +45,7 @@ Registrate en Devstagram
             </div>
 
             <div class="mb-5">
-                <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">Password</label>
+                <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">Contraseña</label>
                 <input class="border p-3 w-full rounded-lg @error('password') border-red-500 @enderror" type="password"
                     name="password" id="password" placeholder="Password de Registro" />
 
@@ -56,7 +56,7 @@ Registrate en Devstagram
 
             <div class="mb-5">
                 <label for="password_confirmation" class="mb-2 block uppercase text-gray-500 font-bold">Repetir
-                    Password</label>
+                    Contraseña</label>
                 <input class="border p-3 w-full rounded-lg" type="password" name="password_confirmation"
                     id="password_confirmation" placeholder="Repite tu Password" />
             </div>

@@ -27,6 +27,7 @@ class ImagenController extends Controller
 
         //agregamos la imagen a la  carpeta en public donde se guardaran las imagenes
         $imagenesPath = public_path('uploads') . '/' . $nombreImagen;
+        //$imagenesPath = public_path('../public_html/uploads') . '/' . $nombreImagen;
         //Una vez procesada la imagen entonces guardamos la imagen en la carpeta que creamos
         $imagenServidor->save($imagenesPath);
 

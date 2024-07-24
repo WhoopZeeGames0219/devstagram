@@ -58,7 +58,8 @@ class PostController extends Controller
 
     public function show(User $user, Post $post)
     {
-        return view('posts.show', ['post' => $post, 'user' => $user]);
+        $comentarios = $post->comentarios()->latest()->paginate(3);
+        return view('posts.show', ['post' => $post, 'user' => $user, 'comentarios' => $comentarios]);
     }
 
     public function destroy(Post $post)

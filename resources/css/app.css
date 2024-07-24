@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Definir la fuente */
+@font-face {
+    font-family: 'AbadiMT';
+    src: url('/public/fonts/abadi-mt.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
