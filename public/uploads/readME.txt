@@ -1,0 +1,1 @@
+Aqui se almacenaran tus publicaciones, corre este comando para generar la carpeta storage que va enlazada con la carpeta storage de app/public: php artisan storage:link, la cual servira para almacenar las fotos de perfil del usuario
