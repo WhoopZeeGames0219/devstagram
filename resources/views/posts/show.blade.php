@@ -56,9 +56,9 @@
                         <label for="comentario" class="mb-2 block uppercase text-gray-500 font-bold">Añade un
                             Comentario</label>
                         <textarea name="comentario" id="comentario" placeholder="Agrega un comentario" class="border p-3 w-full rounded-lg 
-                                                                                       @error('comentario')
-                                                                                        border-red-500
-                                                                                    @enderror"></textarea>
+                                                                                           @error('comentario')
+                                                                                            border-red-500
+                                                                                        @enderror"></textarea>
                         @error('comentario')
                             <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center font-bold">
                                 {{ $message }}
@@ -76,7 +76,7 @@
                     @foreach ($comentarios as $comentario)
                         <div class="p-5 border-gray-300 border-b flex flex-row">
                             <div class="flex items-center">
-                                <img src="{{ $comentario->user->imagen ? asset('perfiles/' . $comentario->user->imagen) : asset('img/usuario.svg') }}"
+                                <img src="{{ $comentario->user->imagen ? asset('storage/' . $comentario->user->imagen) : asset('img/usuario.svg') }}"
                                     alt="" class="rounded-full h-12 w-12 mr-2 object-cover">
                             </div>
                             <div>

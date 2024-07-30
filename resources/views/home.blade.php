@@ -12,7 +12,7 @@ Página Principal
     @foreach ($users as $user)
         <div class="flex-shrink-0 flex flex-col items-center">
             <a href="{{ route('posts.index', ['user' => $user]) }}">
-                <img src="{{ $user->imagen ? asset('perfiles') . '/' . $user->imagen : asset('img/usuario.svg') }}" alt=""
+                <img src="{{ $user->imagen ? asset('storage') . '/' . $user->imagen : asset('img/usuario.svg') }}" alt=""
                     class="border border-gray-300 rounded-lg object-cover w-40 h-48">
                 <p class="border border-gray-400 text-center w-full px-2 py-1 mt-2 break-words rounded-sm">
                     {{ $user->username }}

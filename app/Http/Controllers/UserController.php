@@ -15,8 +15,8 @@ class UserController extends Controller
         $results = $users->map(function ($user) {
             return [
                 'username' => $user->username,
-                'image' => asset('perfiles') . '/' . $user->imagen,
-                'profile_url' => route('posts.index', ['user' => $user->username])
+                'image' => $user->imagen ? asset('storage/' . $user->imagen) : asset('img/usuario.svg'),
+                'profile_url' => route('posts.index', ['user' => $user->username]),
             ];
         });
 

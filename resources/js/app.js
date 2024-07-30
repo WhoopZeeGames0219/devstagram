@@ -9,6 +9,7 @@ const dropzone = new Dropzone("#dropzone", {
     dictRemoveFile: "Borrar Archivo",
     maxFiles: 1,
     uploadMultiple: false,
+    maxFilesize: 5,
 
     init: function () {
         if (document.querySelector('[name="imagen"]').value.trim()) {
@@ -42,7 +43,13 @@ dropzone.on("success", function (file, response) {
 });
 
 dropzone.on("error", function (file, message) {
-    console.log(message);
+    if (file.size > dropzone.options.maxFilesize * 1024 * 1024) {
+        dropzone.removeFile(file); // Opcional: elimina el archivo de la vista de Dropzone
+        alert("El archivo es demasiado grande. El tamaño máximo permitido es de 5 MB.");
+    } else {
+        dropzone.removeFile(file);
+        alert("La imagen que intentas subir, puede estar dañada, tenga algun formato que el servidor no pueda procesar o excedio el tamaño requerido (pixeles), recorta la imagen o intenta subir otra"); // Muestra otros errores
+    }
 });
 
 dropzone.on("removedfile", function () {

@@ -9,29 +9,26 @@ use Intervention\Image\Drivers\Gd\Driver;
 
 class ImagenController extends Controller
 {
-    //
     public function store(Request $request)
     {
         $manager = new ImageManager(new Driver());
 
         $imagen = $request->file('file');
 
-        //generar un id unico para las imagenes
-        $nombreImagen = Str::uuid() . "." . $imagen->extension();
+        // Generate a unique ID for the image
+        $nombreImagen = Str::uuid() . ".png"; // Change the extension to PNG
 
-        //guardar la imagen al servidor
+        // Read the image
         $imagenServidor = $manager->read($imagen);
-        //agregamos efecto a la imagen con intervention
+
+        // Scale the image
         $imagenServidor->scale(800, 800);
-        // la unidad de mide en PX 1= 1pixiel
 
-        //agregamos la imagen a la  carpeta en public donde se guardaran las imagenes
+        // Save the image to the server in PNG format
         $imagenesPath = public_path('uploads') . '/' . $nombreImagen;
-        //$imagenesPath = public_path('../public_html/uploads') . '/' . $nombreImagen;
-        //Una vez procesada la imagen entonces guardamos la imagen en la carpeta que creamos
-        $imagenServidor->save($imagenesPath);
+        $imagenServidor->save($imagenesPath, 'png');
 
-        //retornamos el nombre de la imagen, que es el nombre que nos da el ID unico con uuid()
+        // Return the name of the image
         return response()->json(['imagen' => $nombreImagen]);
     }
 }

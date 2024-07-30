@@ -9,7 +9,7 @@ Muro de {{ $user->username }}
     <div class="w-full md:6/12 lg:w-6/12 flex flex-col items-center md:flex-row lg:justify-center">
         <div class="md:w-6/12 lg:w-10/12 px-5 flex justify-center">
             <div class="profile-container">
-                <img src="{{ $user->imagen ? asset('perfiles') . '/' . $user->imagen : asset('img/usuario.svg') }}"
+                <img src="{{ $user->imagen ? asset('storage') . '/' . $user->imagen : asset('img/usuario.svg') }}"
                     alt="Imagen usuario" class="profile-image" />
             </div>
         </div>
